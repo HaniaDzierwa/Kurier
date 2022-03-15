@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PickPackage : MonoBehaviour
 {
@@ -27,7 +28,19 @@ public class PickPackage : MonoBehaviour
         
 
     }
-   
+
+    private void Update()
+    {
+
+        if (SceneManager.GetActiveScene().name != "Game")
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
     public void resetPickPoint()
     {
         this.packagePicked = false;

@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 public class UpgradeManager : MonoBehaviour
 {
     GameObject player;
+    MyResources myResources;
     string gameSceneName;
 
-    
+    public int counter =0; 
    
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
 
         gameSceneName = "Game";
         player = GameObject.Find("Player");
+        myResources = GameObject.Find("ResourcesManager").GetComponent<MyResources>();
     }
 
     // Update is called once per frame
@@ -50,12 +52,25 @@ public class UpgradeManager : MonoBehaviour
 
     public void changeCar()
     {
+        Debug.Log(player.GetComponent<PlayerManager>().currentlySelectedCar.name);
 
-        player.gameObject.GetComponent<SpriteRenderer>().sprite.name = "Assets/SpriteCar/car_people3.png";
-
+        player.GetComponent<PlayerManager>().currentlySelectedCar = myResources.cars[5];
+        Debug.Log(player.GetComponent<PlayerManager>().currentlySelectedCar.name);
+        player.GetComponent<PlayerManager>().Reskin(counter);
 
 
 
     }
+
+
+   public void ButtonClick()
+    {
+        counter++;
+        if (counter > 7)
+            counter = 0;
+
+        
+    }
+
 
 }

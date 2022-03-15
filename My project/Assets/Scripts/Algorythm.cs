@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Algorythm: MonoBehaviour
 {
-
+    
     [SerializeField]
     private Transform[] nodesTable;
     [SerializeField]
@@ -24,8 +24,10 @@ public class Algorythm: MonoBehaviour
 
     List<int> routeAB; 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+      
+
         nodesTable = GetComponentsInChildren<Transform>();
 
         nodes = GetAllChildren();

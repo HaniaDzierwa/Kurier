@@ -6,6 +6,7 @@ using System.Linq;
 public class PackageManager : MonoBehaviour
 {
 
+
     [Header("Notification variables")]
     [SerializeField]
     private Text notificationText;
@@ -37,6 +38,8 @@ public class PackageManager : MonoBehaviour
 
     void Start()
     {
+       
+
         pickPackageObj = GameObject.FindGameObjectWithTag("PickPackage");
         deliverdPackageObj = GameObject.FindGameObjectWithTag("DeliverdPackage");
 
